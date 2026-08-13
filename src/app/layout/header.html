@@ -1,0 +1,52 @@
+@if (!isHome()) {
+<header class="border-b border-neutral-200 bg-white">
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-neutral-600 sm:px-6"
+    aria-label="Primary"
+  >
+    <a routerLink="/" class="text-lg font-semibold tracking-tight text-neutral-900 flex items-center gap-2">
+      <img src="/Logo.svg" alt="Golobe" class="h-7 w-auto invert" />
+    </a>
+
+    <ul class="flex flex-wrap items-center gap-6 text-sm font-medium">
+      <li>
+        <a
+          routerLink="/destinations"
+          routerLinkActive="font-semibold text-neutral-900"
+          class="transition-colors hover:text-neutral-900"
+        >
+          Destinations
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/tours"
+          routerLinkActive="font-semibold text-neutral-900"
+          class="transition-colors hover:text-neutral-900"
+        >
+          Tours
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/booking"
+          routerLinkActive="font-semibold text-neutral-900"
+          class="transition-colors hover:text-neutral-900"
+        >
+          Booking
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/account"
+          routerLinkActive="font-semibold text-neutral-900"
+          class="transition-colors hover:text-neutral-900"
+        >
+          Account
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+}
+

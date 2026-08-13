@@ -1,0 +1,21 @@
+/*
+ * Global element defaults. Tailwind's preflight resets browser styles; add
+ * app-wide base rules here (smoothing, focus rings) inside `@layer base`.
+ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fafbfc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* TODO: replace with the brand focus color once screenshots are available. */
+  :focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+}

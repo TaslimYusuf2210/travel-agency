@@ -1,0 +1,34 @@
+/*
+ * Design tokens — extracted from the Figma screenshots.
+ *
+ * Tailwind v4 is CSS-first: declare tokens here with `@theme` and each one
+ * becomes a utility automatically. For example:
+ *
+ *   --color-brand-500: #2563eb;   → bg-brand-500, text-brand-500, border-brand-500
+ *   --font-display: "Playfair";   → font-display
+ *   --spacing-section: 6rem;      → p-section, mt-section
+ *
+ * Until the screenshots are available, we only set the base font stack and
+ * rely on Tailwind's built-in defaults for everything else.
+ */
+
+/* Self-hosted Trade Gothic LT Std Extended (OTF in /public) */
+@font-face {
+  font-family: "Trade Gothic LT Std Extended";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/Trade Gothic LT Std Extended/Trade Gothic LT Std Extended.otf") format("opentype");
+}
+
+@theme {
+  --font-sans:
+    "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Trade Gothic LT Std Extended", "Montserrat", sans-serif;
+  --color-mint: #8DD3BB;
+  --color-mint-dark: #74C0A3;
+  --color-mint-light: #CDEAE1;
+  --color-golobe-dark: #112211;
+  --color-golobe-border: #79747E;
+}
+
