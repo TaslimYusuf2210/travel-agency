@@ -12,12 +12,24 @@ import { filter, map, startWith } from 'rxjs';
 export class Header {
   private router = inject(Router);
 
-  isHome = toSignal(
+  private isStandaloneRoute(): boolean {
+    const url = this.router.url;
+    return (
+      url === '/' ||
+      url === '' ||
+      url.startsWith('/login') ||
+      url.startsWith('/create-account') ||
+      url.startsWith('/forgot-password')
+    );
+  }
+
+  hideHeader = toSignal(
     this.router.events.pipe(
       filter((e) => e instanceof NavigationEnd),
-      map(() => this.router.url === '/' || this.router.url === ''),
-      startWith(this.router.url === '/' || this.router.url === '')
+      map(() => this.isStandaloneRoute()),
+      startWith(this.isStandaloneRoute())
     )
   );
+
 }
 

@@ -1,0 +1,85 @@
+<div class="min-h-screen bg-white p-4 sm:p-8 lg:p-12 font-sans flex items-center justify-center">
+  <div
+    class="w-full max-w-[1360px] mx-auto grid grid-cols-1 gap-8 lg:gap-16 items-center"
+    [class.lg:grid-cols-2]="layout() === 'equal'"
+    [class.lg:grid-cols-5]="layout() === 'form-major'"
+  >
+
+    <!-- Left Column: Brand + Projected Form -->
+    <div
+      class="w-full mx-auto lg:mx-0"
+      [class.lg:col-span-1]="layout() === 'equal'"
+      [class.lg:col-span-3]="layout() === 'form-major'"
+    >
+      <a routerLink="/" class="inline-block mb-6">
+        <img src="/Logo.png" alt="Golobe Logo" class="h-9 w-auto" />
+      </a>
+      <ng-content />
+    </div>
+
+    <!-- Right Column: Image Carousel -->
+    <div
+      class="relative hidden lg:block w-full h-[640px] rounded-[30px] overflow-hidden shadow-xl border border-gray-100"
+      [class.lg:col-span-1]="layout() === 'equal'"
+      [class.lg:col-span-2]="layout() === 'form-major'"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Golobe showcase"
+    >
+      <!-- Slides -->
+      @for (img of images(); track img; let i = $index) {
+        <img
+          [src]="img"
+          [alt]="'Golobe Auth Showcase ' + (i + 1)"
+          class="absolute inset-0 h-full w-full object-cover transition-opacity duration-500"
+          [class.opacity-100]="activeIndex() === i"
+          [class.opacity-0]="activeIndex() !== i"
+        />
+      }
+
+      <!-- Previous Arrow -->
+      <button
+        type="button"
+        (click)="prev()"
+        aria-label="Previous slide"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/50 cursor-pointer"
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Next Arrow -->
+      <button
+        type="button"
+        (click)="next()"
+        aria-label="Next slide"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/50 cursor-pointer"
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Carousel Dots Indicator -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-10">
+        @for (img of images(); track img; let i = $index) {
+          <button
+            type="button"
+            (click)="goTo(i)"
+            [attr.aria-label]="'Go to slide ' + (i + 1)"
+            [attr.aria-current]="activeIndex() === i ? 'true' : null"
+            class="h-2.5 rounded-full transition-all cursor-pointer"
+            [class.w-8]="activeIndex() === i"
+            [class.w-2.5]="activeIndex() !== i"
+            [class.bg-mint]="activeIndex() === i"
+            [class.bg-white]="activeIndex() !== i"
+            [class.opacity-100]="activeIndex() === i"
+            [class.opacity-80]="activeIndex() !== i"
+          ></button>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>
