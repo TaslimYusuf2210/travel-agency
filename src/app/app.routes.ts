@@ -28,6 +28,12 @@ export const routes: Routes = [
         loadComponent: () => import('./features/booking/booking').then((m) => m.Booking),
       },
       {
+        path: 'find-flight',
+        title: 'Find Flight',
+        loadComponent: () =>
+          import('./features/find-flight/find-flight').then((m) => m.FindFlight),
+      },
+      {
         path: 'login',
         title: 'Login',
         loadComponent: () => import('./features/auth/login/login').then((m) => m.Login),

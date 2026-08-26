@@ -1,0 +1,21 @@
+<section class="mx-auto mt-12 max-w-[1360px] px-4 pb-16 sm:px-6 lg:px-8">
+  <div class="mb-6 flex items-end justify-between gap-4">
+    <div>
+      <h2 class="text-[2.3rem] font-extrabold tracking-[-0.06em] text-[#1d1d1f]">Plan your perfect trip</h2>
+      <p class="mt-2 text-[1.15rem] text-[#4b4b4b]">Search Flights &amp; Places Hire to our most popular destinations</p>
+    </div>
+
+    <button
+      type="button"
+      class="inline-flex items-center justify-center rounded-[14px] border border-[#b9d9ce] bg-transparent px-5 py-3 text-base font-medium text-[#1d1d1f] transition hover:bg-[#edf6f2]"
+    >
+      See more places
+    </button>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    @for (destination of destinations(); track destination.id) {
+      <app-destination-card [destination]="destination" />
+    }
+  </div>
+</section>

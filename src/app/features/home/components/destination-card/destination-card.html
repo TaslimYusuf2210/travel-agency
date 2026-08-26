@@ -1,0 +1,21 @@
+<article class="flex h-full items-center gap-4 rounded-[22px] border border-[#dfe5e1] bg-[#f3f4f1] p-4 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
+  <div class="relative h-[105px] w-[105px] shrink-0 overflow-hidden rounded-[16px] bg-[#dfe4df]">
+    <img
+      [ngSrc]="destination.imageUrl"
+      [alt]="destination.name + ', ' + destination.country"
+      width="105"
+      height="105"
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <div class="min-w-0 flex-1">
+    <h3 class="text-[1.05rem] font-medium tracking-[-0.02em] text-[#1e1e1e] sm:text-[1.2rem]">
+      {{ destination.name }}, {{ destination.country }}
+    </h3>
+
+    <p class="mt-2 text-[0.9rem] font-normal text-[#4a4a4a] sm:text-[1rem]">
+      {{ destination.description }}
+    </p>
+  </div>
+</article>

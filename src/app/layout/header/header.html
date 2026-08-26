@@ -1,52 +1,102 @@
 @if (!hideHeader()) {
-<header class="border-b border-neutral-200 bg-white">
-  <nav
-    class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-neutral-600 sm:px-6"
-    aria-label="Primary"
-  >
-    <a routerLink="/" class="text-lg font-semibold tracking-tight text-neutral-900 flex items-center gap-2">
-      <img src="/Logo.png" alt="Golobe" class="h-7 w-auto invert" />
-    </a>
+  @if (isHomeRoute()) {
+    <header class="absolute inset-x-0 top-0 z-30">
+      <nav
+        class="mx-auto flex max-w-[1360px] items-center justify-between px-10 py-6 text-white sm:px-12 lg:px-14"
+        aria-label="Primary"
+      >
+        <div class="flex items-center gap-6 text-sm font-semibold">
+          <a
+            routerLink="/find-flight"
+            class="flex items-center gap-2 transition hover:opacity-80"
+            aria-label="Find Flight"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                fill="currentColor"
+                d="M20.56 3.91c.59.59.59 1.54 0 2.12l-3.89 3.89l2.12 9.19l-1.41 1.42l-3.88-7.43L9.6 17l.36 2.47l-1.07 1.06l-1.76-3.18l-3.19-1.77L5 14.5l2.5.37L11.37 11L3.94 7.09l1.42-1.41l9.19 2.12l3.89-3.89c.56-.58 1.56-.58 2.12 0"
+              />
+            </svg>
+            <span>Find Flight</span>
+          </a>
 
-    <ul class="flex flex-wrap items-center gap-6 text-sm font-medium">
-      <li>
-        <a
-          routerLink="/destinations"
-          routerLinkActive="font-semibold text-neutral-900"
-          class="transition-colors hover:text-neutral-900"
-        >
-          Destinations
+          <button type="button" class="flex items-center gap-2 transition hover:opacity-80">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                fill="currentColor"
+                d="M2 19v-6q0-.675.275-1.225T3 10.8V8q0-1.25.875-2.125T6 5h4q.575 0 1.075.213T12 5.8q.425-.375.925-.587T14 5h4q1.25 0 2.125.875T21 8v2.8q.45.425.725.975T22 13v6h-2v-2H4v2zm11-9h6V8q0-.425-.288-.712T18 7h-4q-.425 0-.712.288T13 8zm-8 0h6V8q0-.425-.288-.712T10 7H6q-.425 0-.712.288T5 8z"
+              />
+            </svg>
+            <span>Find Stays</span>
+          </button>
+        </div>
+
+        <a routerLink="/" class="flex items-center justify-center" aria-label="Go home">
+          <img src="/Logo.svg" alt="Golobe" class="h-9 w-auto" />
         </a>
-      </li>
-      <li>
-        <a
-          routerLink="/tours"
-          routerLinkActive="font-semibold text-neutral-900"
-          class="transition-colors hover:text-neutral-900"
-        >
-          Tours
+
+        <div class="flex items-center gap-5 text-sm font-semibold">
+          <a routerLink="/login" class="transition hover:opacity-80">Login</a>
+          <a
+            routerLink="/create-account"
+            class="rounded-[8px] bg-white px-5 py-2.5 text-sm font-semibold text-[#112211] shadow-sm transition hover:bg-gray-100"
+          >
+            Sign up
+          </a>
+        </div>
+      </nav>
+    </header>
+  } @else {
+    <header class="border-b border-neutral-200 bg-white">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-neutral-700 sm:px-6"
+        aria-label="Primary"
+      >
+        <div class="flex items-center gap-6 text-sm font-semibold text-[#112211]">
+          <a
+            routerLink="/find-flight"
+            class="flex items-center gap-2 transition hover:opacity-80"
+            aria-label="Find Flight"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                fill="currentColor"
+                d="M20.56 3.91c.59.59.59 1.54 0 2.12l-3.89 3.89l2.12 9.19l-1.41 1.42l-3.88-7.43L9.6 17l.36 2.47l-1.07 1.06l-1.76-3.18l-3.19-1.77L5 14.5l2.5.37L11.37 11L3.94 7.09l1.42-1.41l9.19 2.12l3.89-3.89c.56-.58 1.56-.58 2.12 0"
+              />
+            </svg>
+            <span>Find Flight</span>
+          </a>
+
+          <button type="button" class="flex items-center gap-2 transition hover:opacity-80">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                fill="currentColor"
+                d="M2 19v-6q0-.675.275-1.225T3 10.8V8q0-1.25.875-2.125T6 5h4q.575 0 1.075.213T12 5.8q.425-.375.925-.587T14 5h4q1.25 0 2.125.875T21 8v2.8q.45.425.725.975T22 13v6h-2v-2H4v2zm11-9h6V8q0-.425-.288-.712T18 7h-4q-.425 0-.712.288T13 8zm-8 0h6V8q0-.425-.288-.712T10 7H6q-.425 0-.712.288T5 8z"
+              />
+            </svg>
+            <span>Find Stays</span>
+          </button>
+        </div>
+
+        <a routerLink="/" class="flex items-center justify-center" aria-label="Go home">
+          <img src="/Logo.png" alt="Golobe" class="h-9 w-auto" />
         </a>
-      </li>
-      <li>
-        <a
-          routerLink="/booking"
-          routerLinkActive="font-semibold text-neutral-900"
-          class="transition-colors hover:text-neutral-900"
-        >
-          Booking
-        </a>
-      </li>
-      <li>
-        <a
-          routerLink="/login"
-          routerLinkActive="font-semibold text-neutral-900"
-          class="transition-colors hover:text-neutral-900"
-        >
-          Login
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+
+        <div class="flex items-center gap-5 text-sm font-semibold text-[#112211]">
+          <a routerLink="/login" class="transition hover:opacity-80">Login</a>
+          <a
+            routerLink="/create-account"
+            class="rounded-[8px] bg-[#112211] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1c2c18]"
+          >
+            Sign up
+          </a>
+        </div>
+      </nav>
+    </header>
+  }
 }
 
