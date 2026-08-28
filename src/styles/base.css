@@ -13,9 +13,81 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  form,
+  form label,
+  form input,
+  form select,
+  form textarea,
+  form button {
+    font-family: var(--font-sans);
+  }
+
   /* TODO: replace with the brand focus color once screenshots are available. */
   :focus-visible {
     outline: 2px solid #2563eb;
     outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #112211;
+  }
+
+  .section-subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #4b4b4b;
+  }
+
+  .section-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    border: 2px solid #8dd3bb;
+    border-radius: 0.625rem;
+    background-color: transparent;
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #112211;
+    cursor: pointer;
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease,
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease,
+      translate 0.35s ease;
+    transform: translateY(0) scale(1);
+  }
+
+  .section-button:hover {
+    background-color: #8dd3bb;
+    color: #ffffff;
+    border-color: #8dd3bb;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 22px rgba(141, 211, 187, 0.22);
+  }
+
+  @media (min-width: 640px) {
+    .section-heading {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-heading {
+      font-size: 3rem;
+    }
   }
 }
