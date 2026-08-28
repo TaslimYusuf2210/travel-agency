@@ -1,15 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-destinations',
+  standalone: true,
   template: `
-    <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <h1 class="text-3xl font-semibold tracking-tight text-neutral-900">Destinations</h1>
-      <p class="mt-3 text-neutral-600">
-        Placeholder page — the real design comes from your screenshots.
-      </p>
+    <section class="p-8 text-[#112211]">
+      <h1 class="font-display text-4xl">Destinations</h1>
+      <p class="mt-4 text-base text-gray-600">Explore the world with our signature trips.</p>
     </section>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Destinations {}
