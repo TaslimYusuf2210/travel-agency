@@ -1,0 +1,82 @@
+<main class="showflights-page">
+  <section class="showflights-search-panel">
+    <form (submit)="$event.preventDefault()" class="showflights-search-panel__form">
+      <app-floating-field
+        label="From - To"
+        [ngModel]="fromLocation() + ' - ' + toLocation()"
+        (ngModelChange)="fromLocation.set($event)"
+        name="fromTo"
+      >
+        <button type="button" class="swap-button" aria-label="Swap locations" title="Swap locations">
+          ⇅
+        </button>
+      </app-floating-field>
+
+      <app-floating-field
+        label="Trip"
+        type="select"
+        [options]="['Return', 'One Way', 'Multi-City']"
+        [ngModel]="tripType()"
+        (ngModelChange)="tripType.set($event)"
+        name="tripType"
+      />
+
+      <app-floating-field
+        label="Depart- Return"
+        [ngModel]="departReturn()"
+        (ngModelChange)="departReturn.set($event)"
+        name="departReturn"
+      />
+
+      <app-floating-field
+        label="Passenger - Class"
+        [ngModel]="passengerClass()"
+        (ngModelChange)="passengerClass.set($event)"
+        name="passengerClass"
+      />
+
+      <button type="button" class="showflights-search-button" aria-label="Search flights">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.5 3a7.5 7.5 0 015.96 12.12l4.72 4.72 1.41-1.41-4.72-4.72A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" />
+        </svg>
+      </button>
+    </form>
+  </section>
+
+  <section class="showflights-page__content">
+    <div class="showflights-page__sidebar">
+      <app-showflights-filter-sidebar />
+    </div>
+
+    <div class="showflights-page__results">
+      <app-showflights-results-toolbar
+        [resultCount]="flights.length"
+        [selectedSort]="selectedSort"
+        [sortOptions]="sortOptions"
+        (sortChange)="onSortChange($event)"
+      />
+
+      <div class="flight-card-list">
+        @for (flight of flights; track flight.flightCode) {
+          <app-showflights-flight-card
+            [airline]="flight.airline"
+            [flightCode]="flight.flightCode"
+            [departureTime]="flight.departureTime"
+            [arrivalTime]="flight.arrivalTime"
+            [departureLabel]="flight.departureLabel"
+            [arrivalLabel]="flight.arrivalLabel"
+            [duration]="flight.duration"
+            [aircraft]="flight.aircraft"
+            [price]="flight.price"
+            [rating]="flight.rating"
+            [badge]="flight.badge"
+            [imageUrl]="flight.imageUrl"
+            [isFeatured]="flight.isFeatured"
+          />
+        }
+      </div>
+
+      <app-showflights-show-more />
+    </div>
+  </section>
+</main>

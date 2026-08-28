@@ -1,0 +1,51 @@
+<aside class="filter-panel">
+  <div class="filter-panel__header">
+    <h3>{{ title }}</h3>
+    <button type="button" aria-label="Reset filters">Reset</button>
+  </div>
+
+  <div class="filter-group">
+    <p class="filter-group__label">Price</p>
+    <div class="price-box">
+      <span class="price-box__label">Range</span>
+      <strong>{{ priceRange }}</strong>
+    </div>
+    <input type="range" min="0" max="100" value="55" aria-label="Price range" />
+  </div>
+
+  <div class="filter-group">
+    <p class="filter-group__label">Stops</p>
+    <div class="option-list">
+      @for (option of stopOptions; track option) {
+        <label class="option-item">
+          <input type="checkbox" checked />
+          <span>{{ option }}</span>
+        </label>
+      }
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <p class="filter-group__label">Airlines</p>
+    <div class="option-list">
+      @for (option of airlineOptions; track option) {
+        <label class="option-item">
+          <input type="checkbox" checked />
+          <span>{{ option }}</span>
+        </label>
+      }
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <p class="filter-group__label">Departure time</p>
+    <div class="option-list">
+      @for (option of timeOptions; track option) {
+        <label class="option-item">
+          <input type="checkbox" />
+          <span>{{ option }}</span>
+        </label>
+      }
+    </div>
+  </div>
+</aside>

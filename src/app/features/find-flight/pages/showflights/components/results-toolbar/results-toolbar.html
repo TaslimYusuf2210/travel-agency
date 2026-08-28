@@ -1,0 +1,23 @@
+<div class="results-toolbar">
+  <div class="results-toolbar__summary">
+    <div>
+      <p class="eyebrow">Results</p>
+      <h2>Showing {{ resultCount }} flights</h2>
+    </div>
+
+    <label class="sort-control" for="flight-sort">
+      <span>Sort by</span>
+      <select id="flight-sort" [value]="selectedSort" (change)="onSortChange($event)">
+        @for (option of sortOptions; track option) {
+          <option [value]="option">{{ option }}</option>
+        }
+      </select>
+    </label>
+  </div>
+
+  <div class="results-toolbar__chips" aria-label="Result preferences">
+    <span>Best value</span>
+    <span>Flexible</span>
+    <span>Popular</span>
+  </div>
+</div>

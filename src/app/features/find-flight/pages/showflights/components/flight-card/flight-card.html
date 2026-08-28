@@ -1,0 +1,47 @@
+<article class="flight-card" [class.flight-card--featured]="isFeatured">
+  <div class="flight-card__image-wrap">
+    <img [src]="imageUrl" [alt]="airline + ' flight'" />
+    <span class="flight-card__badge">{{ badge }}</span>
+  </div>
+
+  <div class="flight-card__content">
+    <div class="flight-card__topline">
+      <div>
+        <p class="flight-card__airline">{{ airline }}</p>
+        <span class="flight-card__code">{{ flightCode }}</span>
+      </div>
+      <div class="flight-card__rating">
+        <span>★</span>
+        <strong>{{ rating.toFixed(1) }}</strong>
+      </div>
+    </div>
+
+    <div class="flight-card__schedule">
+      <div class="time-block">
+        <strong>{{ departureTime }}</strong>
+        <span>{{ departureLabel }}</span>
+      </div>
+      <div class="route-line">
+        <span></span>
+        <small>{{ duration }}</small>
+      </div>
+      <div class="time-block time-block--arrival">
+        <strong>{{ arrivalTime }}</strong>
+        <span>{{ arrivalLabel }}</span>
+      </div>
+    </div>
+
+    <div class="flight-card__meta">
+      <span>{{ aircraft }}</span>
+      <span>Free cancellation</span>
+    </div>
+
+    <div class="flight-card__footer">
+      <div class="flight-card__pricing">
+        <small>From</small>
+        <strong>{{ price }}</strong>
+      </div>
+      <button type="button">Select</button>
+    </div>
+  </div>
+</article>
