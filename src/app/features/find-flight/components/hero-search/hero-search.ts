@@ -1,16 +1,13 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgOptimizedImage } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { FloatingFieldComponent } from '../../shared/components/floating-field/floating-field';
 
 @Component({
-  selector: 'app-find-flight',
-  imports: [FormsModule, NgOptimizedImage, RouterLink, FloatingFieldComponent],
-  templateUrl: './find-flight.html',
+  selector: 'app-find-flight-hero-search',
+  imports: [FormsModule],
+  templateUrl: './hero-search.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FindFlight {
+export class FindFlightHeroSearchComponent {
   readonly fromLocation = signal('Lahore');
   readonly toLocation = signal('Karachi');
   readonly tripType = signal('Return');
