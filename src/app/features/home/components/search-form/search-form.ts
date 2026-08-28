@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FloatingFieldComponent } from '../../../../shared/components/floating-field/floating-field';
 
 @Component({
   selector: 'app-search-form',
-  imports: [FormsModule],
+  imports: [FormsModule, FloatingFieldComponent],
   templateUrl: './search-form.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

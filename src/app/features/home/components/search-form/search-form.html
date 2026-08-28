@@ -49,88 +49,46 @@
     <form (submit)="$event.preventDefault()" class="mt-8">
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 
-        <!-- Field 1: From - To -->
-        <div class="relative">
-          <label class="absolute -top-2.5 left-3 z-10 bg-white px-1 text-xs font-semibold text-[#112211]">
-            From - To
-          </label>
-          <div class="flex h-[56px] items-center justify-between rounded-[4px] border border-[#79747E] bg-white px-3 py-2 transition-all focus-within:border-[#8DD3BB] focus-within:ring-1 focus-within:ring-[#8DD3BB]">
-            <input
-              type="text"
-              [ngModel]="fromLocation() + ' - ' + toLocation()"
-              (ngModelChange)="fromLocation.set($event)"
-              name="fromTo"
-              class="w-full bg-transparent text-sm font-medium text-[#112211] outline-none"
-            />
-            <!-- Swap Button -->
-            <button
-              type="button"
-              (click)="swapLocations()"
-              title="Swap origin and destination"
-              class="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[#112211] hover:bg-gray-100 hover:text-[#74C0A3] transition-colors cursor-pointer"
-            >
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+        <app-floating-field
+          label="From - To"
+          [ngModel]="fromLocation() + ' - ' + toLocation()"
+          (ngModelChange)="fromLocation.set($event)"
+          name="fromTo"
+        >
+          <button
+            type="button"
+            (click)="swapLocations()"
+            title="Swap origin and destination"
+            class="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[#112211] hover:bg-gray-100 hover:text-[#74C0A3] transition-colors cursor-pointer"
+          >
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+            </svg>
+          </button>
+        </app-floating-field>
 
-        <!-- Field 2: Trip -->
-        <div class="relative">
-          <label class="absolute -top-2.5 left-3 z-10 bg-white px-1 text-xs font-semibold text-[#112211]">
-            Trip
-          </label>
-          <div class="relative flex h-[56px] items-center rounded-[4px] border border-[#79747E] bg-white px-3 py-2 transition-all focus-within:border-[#8DD3BB] focus-within:ring-1 focus-within:ring-[#8DD3BB]">
-            <select
-              [ngModel]="tripType()"
-              (ngModelChange)="tripType.set($event)"
-              name="tripType"
-              class="w-full appearance-none bg-transparent text-sm font-medium text-[#112211] outline-none cursor-pointer pr-8"
-            >
-              <option value="Return">Return</option>
-              <option value="One Way">One Way</option>
-              <option value="Multi-City">Multi-City</option>
-            </select>
-            <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#112211]">
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-              </svg>
-            </div>
-          </div>
-        </div>
+        <app-floating-field
+          label="Trip"
+          type="select"
+          [options]="['Return', 'One Way', 'Multi-City']"
+          [ngModel]="tripType()"
+          (ngModelChange)="tripType.set($event)"
+          name="tripType"
+        />
 
-        <!-- Field 3: Depart - Return -->
-        <div class="relative">
-          <label class="absolute -top-2.5 left-3 z-10 bg-white px-1 text-xs font-semibold text-[#112211]">
-            Depart- Return
-          </label>
-          <div class="flex h-[56px] items-center rounded-[4px] border border-[#79747E] bg-white px-3 py-2 transition-all focus-within:border-[#8DD3BB] focus-within:ring-1 focus-within:ring-[#8DD3BB]">
-            <input
-              type="text"
-              [ngModel]="departReturn()"
-              (ngModelChange)="departReturn.set($event)"
-              name="departReturn"
-              class="w-full bg-transparent text-sm font-medium text-[#112211] outline-none"
-            />
-          </div>
-        </div>
+        <app-floating-field
+          label="Depart- Return"
+          [ngModel]="departReturn()"
+          (ngModelChange)="departReturn.set($event)"
+          name="departReturn"
+        />
 
-        <!-- Field 4: Passenger - Class -->
-        <div class="relative">
-          <label class="absolute -top-2.5 left-3 z-10 bg-white px-1 text-xs font-semibold text-[#112211]">
-            Passenger - Class
-          </label>
-          <div class="flex h-[56px] items-center rounded-[4px] border border-[#79747E] bg-white px-3 py-2 transition-all focus-within:border-[#8DD3BB] focus-within:ring-1 focus-within:ring-[#8DD3BB]">
-            <input
-              type="text"
-              [ngModel]="passengerClass()"
-              (ngModelChange)="passengerClass.set($event)"
-              name="passengerClass"
-              class="w-full bg-transparent text-sm font-medium text-[#112211] outline-none"
-            />
-          </div>
-        </div>
+        <app-floating-field
+          label="Passenger - Class"
+          [ngModel]="passengerClass()"
+          (ngModelChange)="passengerClass.set($event)"
+          name="passengerClass"
+        />
 
       </div>
 
