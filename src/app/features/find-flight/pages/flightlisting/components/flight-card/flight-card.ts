@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-showflights-flight-card',
+  selector: 'app-flightlisting-flight-card',
   standalone: true,
   templateUrl: './flight-card.html',
   styleUrl: './flight-card.css',

@@ -7,7 +7,7 @@ import { ResultsToolbarComponent } from './components/results-toolbar/results-to
 import { ShowMoreComponent } from './components/show-more/show-more';
 
 @Component({
-  selector: 'app-showflights',
+  selector: 'app-flightlisting',
   imports: [
     FormsModule,
     FloatingFieldComponent,
@@ -16,11 +16,11 @@ import { ShowMoreComponent } from './components/show-more/show-more';
     FlightCardComponent,
     ShowMoreComponent,
   ],
-  templateUrl: './showflights.html',
-  styleUrl: './showflights.css',
+  templateUrl: './flightlisting.html',
+  styleUrl: './flightlisting.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Showflights {
+export class Flightlisting {
   readonly fromLocation = signal('Lahore');
   readonly toLocation = signal('Karachi');
   readonly tripType = signal('Return');

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-showflights-filter-sidebar',
+  selector: 'app-flightlisting-filter-sidebar',
   standalone: true,
   templateUrl: './filter-sidebar.html',
   styleUrl: './filter-sidebar.css',

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-showflights-results-toolbar',
+  selector: 'app-flightlisting-results-toolbar',
   standalone: true,
   templateUrl: './results-toolbar.html',
   styleUrl: './results-toolbar.css',
